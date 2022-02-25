@@ -5,7 +5,7 @@
   "main": "dist/lego-components.umd.js",
   "module": "dist/lego-components.esm.js",
   "types": "dist/index.d.ts",
-  "description": "<%= description%>",
+  "description": "<%= description %>",
   "author": "Viking Zhang",
   "license": "MIT",
   "keywords": [
