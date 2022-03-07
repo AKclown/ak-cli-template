@@ -5,5 +5,11 @@
   "keywords": [],
   "author": "AKclown",
   "license": "ISC",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "fs-extra": "^10.0.1",
+    "glob": "^7.2.0",
+    "inquirer": "^8.2.0"
+  }
 }
