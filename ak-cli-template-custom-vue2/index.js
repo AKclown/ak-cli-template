@@ -41,6 +41,10 @@ async function ejsRender(options) {
     })
 }
 
+function isValidName(v) {
+    return /^[a-zA-Z]+([-][a-zA-Z][a-zA-Z0-9]*|[_][a-zA-Z][a-zA-Z0-9]|[a-zA-Z0-9]*)*$/.test(v);
+}
+
 async function install(options) {
     const projectPrompt = [];
     const descriptionPrompt = {
@@ -74,9 +78,10 @@ async function install(options) {
         fse.ensureDirSync(targetPath);
         fse.copySync(sourcePath, targetPath);
         // $ 动态获取mongodb配置得ignore
-        const templateIgnore = options.templateIgnore.ignore || []
+        const templateIgnore = options.templateInfo.ignore || []
         const ignore = ['node_modules/**', ...templateIgnore];
         await ejsRender({ ignore, targetPath, data: options.projectInfo });
+        // $ 可以根据需要决定是否需要自动安装和启动
         // const { installCommand, startCommand } = options;
         // // // 依赖安装
         // await this.execCommand(installCommand, '依赖安装过程中失败！');
